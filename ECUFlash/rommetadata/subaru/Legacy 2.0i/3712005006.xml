@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rom>
+  <romid>
+    <xmlid>3712005006</xmlid>
+    <internalidaddress>80f8</internalidaddress>
+    <internalidstring>3712005006</internalidstring>
+    <ecuid>3712005006</ecuid>
+    <make>Subaru</make>
+    <market>EDM</market>
+    <model>Legacy</model>
+    <submodel>2.0i</submodel>
+    <transmission>MT</transmission>
+    <year>2004</year>
+    <flashmethod>sub_ecu_hitachi_m32r_kline</flashmethod>
+    <memmodel></memmodel>
+    <checksummodule></checksummodule>
+  </romid>
+
+	<include></include>
+
+	<notes></notes>
+</rom></rom>

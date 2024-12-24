@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<roms>
+  <rom>
+    <romid>
+      <xmlid>32BITBASE</xmlid>
+      <market>EDM</market>
+      <make>Subaru</make>
+      <model>Legacy</model>
+      <submodel>2.0 GX</submodel>
+      <transmission>MT/AT</transmission>
+      <memmodel>UJ30</memmodel>
+      <flashmethod>sub_ecu_unisia_jecs_30</flashmethod>
+      <filesize>256kb</filesize>
+    </romid>
+    <table type="3D" name="Target Boost" category="Boost Control - Target" storagetype="uint16" endian="big" sizex="8" sizey="12" userlevel="1" logparam="E52">
+      <scaling units="Boost Target (bar absolute)" expression="x*.001333224" to_byte="x/.001333224" format="#0.000" fineincrement=".01" coarseincrement=".1" />
+      <table type="X Axis" name="Throttle Plate Opening Angle" storagetype="float" endian="little" logparam="E38">
+        <scaling units="%" expression="x/.84" to_byte="x*.84" format="0.0" fineincrement=".3" coarseincrement="1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="float" endian="little" logparam="P8">
+        <scaling units="RPM" expression="x" to_byte="x" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>This map contains the desired boost targets. Boost compensation tables can impact the final boost target.</description>
+    </table>
+  </rom>
+
+  <rom base="32BITBASE">
+    <romid>
+      <xmlid>1B44100805</xmlid>
+      <internalidaddress>0x01F8</internalidaddress>
+      <internalidstring>1B44100805</internalidstring>
+      <ecuid>0000000000</ecuid>
+      <year>99</year>
+      <market>EDM</market>
+      <make>Subaru</make>
+      <model>Legacy</model>
+      <submodel>2.0 GX</submodel>
+      <transmission>MT/AT</transmission>
+      <memmodel>UJ30</memmodel>
+      <flashmethod>sub_ecu_unisia_jecs_30</flashmethod>
+      <filesize>256kb</filesize>
+    </romid>
+    <table name="Target Boost A" storageaddress="0x5E1A0">
+      <table type="X Axis" storageaddress="0x5E150" />
+      <table type="Y Axis" storageaddress="0x5E170" />
+    </table>
+  </rom>
+</roms>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rom>
+  <romid>
+    <xmlid>4354307006</xmlid>
+    <internalidaddress>80f8</internalidaddress>
+    <internalidstring>4354307006</internalidstring>
+    <ecuid>4354307006</ecuid>
+    <make>Subaru</make>
+    <market>EDM</market>
+    <model>Legacy</model>
+    <submodel>2.0i</submodel>
+    <transmission>MT</transmission>
+    <year>2004</year>
+    <flashmethod>sub_ecu_hitachi_m32r_kline</flashmethod>
+    <memmodel></memmodel>
+    <checksummodule></checksummodule>
+  </romid>
+
+	<include>32BITBASE_HITACHI_EJ204_DBW</include>
+
+	<table name="Injector Flow" address="a874"/>
+
+	<table name="MAF Sensor Scaling" address="b844">
+		<table name="MAF Voltage" address="7975c"/>
+	</table>
+
+	<table name="Load Max" address="b8c6"/>
+
+	<table name="Engine Displacement" address="b8cc"/>
+
+	<table name="Fueling A" address="c20d">
+		<table name="Manifold Pressure" address="c68d"/>
+		<table name="Engine Speed" address="c69d"/>
+	</table>
+
+	<table name="Fueling Low IAM" address="c38d">
+		<table name="Manifold Pressure" address="c68d"/>
+		<table name="Engine Speed" address="c69d"/>
+	</table>
+
+	<table name="Fueling High IAM" address="c50d">
+		<table name="Manifold Pressure" address="c68d"/>
+		<table name="Engine Speed" address="c69d"/>
+	</table>
+
+	<table name="Base Timing A" address="ae9c">
+		<table name="Engine Load" address="b4b4"/>
+		<table name="Engine Speed" address="b49c"/>
+	</table>
+
+	<table name="Base Timing B" address="b01c">
+		<table name="Engine Load" address="b4b4"/>
+		<table name="Engine Speed" address="b49c"/>
+	</table>
+
+	<table name="Base Timing C" address="b31c">
+		<table name="Engine Load" address="b4b4"/>
+		<table name="Engine Speed" address="b49c"/>
+	</table>
+
+	<table name="Base Timing D" address="b19c">
+		<table name="Engine Load" address="b4b4"/>
+		<table name="Engine Speed" address="b49c"/>
+	</table>
+
+	<table name="Timing Advance A" address="a05a">
+		<table name="Engine Load" address="b4b4"/>
+		<table name="Engine Speed" address="b49c"/>
+	</table>
+
+	<table name="Timing Advance B" address="a1da">
+		<table name="Engine Load" address="b4b4"/>
+		<table name="Engine Speed" address="b49c"/>
+	</table>
+
+	<table name="Timing Advance C" address="a35a">
+		<table name="Engine Load" address="b4b4"/>
+		<table name="Engine Speed" address="b49c"/>
+	</table>
+
+	<table name="Timing Advance D" address="a4da">
+		<table name="Engine Load" address="b4b4"/>
+		<table name="Engine Speed" address="b49c"/>
+	</table>
+
+	<table name="Timing Advance E" address="a65a">
+		<table name="Engine Load" address="b4b4"/>
+		<table name="Engine Speed" address="b49c"/>
+	</table>
+
+	<table name="Ignition Advance Multiplier" address="a7e0"/>
+
+	<table name="Ignition Advance Multiplier Step" address="a7de"/>
+
+	<table name="AVCS Timing" address="8a9a" level="1">
+		<table name="Engine Load" address="8cc7"/>
+		<table name="Engine Speed" address="8caa"/>
+	</table>
+
+	<table name="AVCS Retard" address="891a">
+		<table name="Engine Load" address="8cc7"/>
+		<table name="Engine Speed" address="8caa"/>
+	</table>
+
+	<table name="Torque Requested A" address="9222">
+		<table name="Accelerator" address="9322"/>
+		<table name="Engine Speed" address="9332"/>
+	</table>
+
+	<table name="Torque Requested B" address="94be">
+		<table name="Accelerator" address="96be"/>
+		<table name="Engine Speed" address="936e"/>
+	</table>
+
+	<table name="Throttle Requested" address="87e6">
+		<table name="Engine Speed" address="87a6"/>
+		<table name="Torque Requested" address="87b6"/>
+	</table>
+
+	<table name="SSM Idle Min" address="dd5a"/>
+
+	<table name="SSM Idle Max" address="dd59"/>
+
+	<table name="SSM IdleAirCon Min" address="dd5c"/>
+
+	<table name="SSM IdleAirCon Max" address="dd5b"/>
+
+</rom>
+

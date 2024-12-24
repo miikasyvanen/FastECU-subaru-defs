@@ -1,0 +1,215 @@
+<rom>
+	<romid>
+		<xmlid>32BITBASE_HITACHI_EJ204_DBW</xmlid>
+	</romid>
+
+	<scaling name="Row_uint8" units="" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
+	<scaling name="Row_uint16" units="" toexpr="x" frexpr="x" format="%.0f" min="0" max="65535" inc="1" storagetype="uint16" endian="big"/>
+
+	<scaling name="InjectorFlow" units="cc/min" toexpr="9937950/x" frexpr="9937950/x" format="%.0f" min="200" max="500.0" inc="1" storagetype="uint16" endian="big"/>
+
+	<scaling name="AirFlow" units="g/sec" toexpr="x/300" frexpr="x*300" format="%.2f" min="0.0" max="218.45" inc="0.1" storagetype="uint16" endian="big"/>
+	<scaling name="Load" units="g/sec" toexpr="x*200/256" frexpr="x*256/200" format="%.1f" min="0.0" max="200.0" inc="0.1" storagetype="uint8" endian="big"/>
+	<scaling name="LoadMax" units="g/rev" toexpr="x/16384" frexpr="x*16384" format="%.2f" min="0.0" max="1.6" inc="0.1" storagetype="uint16" endian="big"/>
+	<scaling name="EngineDisplacement" units="cc" toexpr="x" frexpr="x" format="%4.0f" min="0.0" max="2500" inc="100" storagetype="uint16" endian="big"/>
+
+
+	<scaling name="AirFuelRatio" units="AirFuelRatio" toexpr="14.7*x/128" frexpr="128*x/14.7" format="%.1f" min="9.0" max="14.7" inc="0.1" storagetype="uint8" endian="big"/>
+	<scaling name="MAF_Voltage" units="volt" toexpr="x*5/65536" frexpr="x*65536/5" format="%.2f" min="0.0" max="5.0" inc="0.1" storagetype="uint16" endian="big"/>
+	<scaling name="EngineLoad" units="g/rev" toexpr="x/30" frexpr="x*30" format="%.2f" min="0" max="1.6" inc="0.01" storagetype="uint8" endian="big"/>
+	<scaling name="ManifoldPressureFueling" units="kPa" toexpr="x/2" frexpr="2*x" format="%.1f" min="0" max="108" inc="0.5" storagetype="uint8" endian="big"/>
+
+	<scaling name="FuelCorrection" units="%" toexpr="x/327.68-100" frexpr="(x+100)*327.68" format="%.1f" min="-25" max="25" inc="1" storagetype="uint16" endian="big"/>
+	<scaling name="FuelLearning" units="%" toexpr="x/1.28-100" frexpr="(x+100)*1.28" format="%.1f" min="-25" max="25" inc="1" storagetype="uint8" endian="big"/>
+	<scaling name="EngineSpeed" units="RPM" toexpr="x*50" frexpr="x/50" format="%.0f" min="0" max="8000" inc="100" storagetype="uint8" endian="big"/>
+	<scaling name="EngineIdle" units="RPM" toexpr="(x-128)*25" frexpr="128+x/25" format="%.0f" min="-300" max="500" inc="25" storagetype="uint8" endian="big"/>
+
+	<scaling name="EngineIdling" units="RPM" toexpr="x*25/4" frexpr="x*4/25" format="%.0f" min="0" max="2000" inc="6.25" storagetype="uint8" endian="big"/>
+	<scaling name="Coolant" units="degC" toexpr="10*x/16-40" frexpr="16*(x+40)/10" format="%.0f" min="-40" max="119" inc="1" storagetype="uint8" endian="big"/>
+
+	<scaling name="Correction128" units="%" toexpr="x/1.28" frexpr="1.28*x" format="%.0f" min="0" max="100" inc="1" storagetype="uint8" endian="big"/>
+
+	<scaling name="Ignition" units="degree" toexpr="(x-80)*90/256" frexpr="256*x/90+80" format="%.1f" min="-10" max="48" inc="0.351" storagetype="uint8" endian="big"/>
+	<scaling name="IgnAdvance" units="degree" toexpr="x" frexpr="x" format="%.0f" min="0" max="48" inc="1" storagetype="uint8" endian="big"/>
+	<scaling name="IgnitionLearning" units="degree" toexpr="x/4" frexpr="x*4" format="%.2f" min="-10" max="10" inc=".25" storagetype="int8" endian="big"/>
+
+	<scaling name="Throttle" units="%" toexpr="x/2.55" frexpr="2.55*x" format="%.0f" min="0.0" max="100.0" inc="1" storagetype="uint8" endian="big"/>
+
+
+	<scaling name="Accelerator" units="%" toexpr="x" frexpr="x" format="%.0f" min="0.0" max="100.0" inc="1" storagetype="uint8" endian="big"/>
+	<scaling name="ThrottleRequested" units="%" toexpr="x/1.73" frexpr="x*1.73" format="%.0f" min="0" max="102" inc="1" storagetype="uint8" endian="big"/>
+
+	<scaling name="TorqueRequested" units="nm" toexpr="x/0.737562" frexpr="x*0.737562" format="%.0f" min="0" max="250" inc="1" storagetype="uint8"/>
+
+	<scaling name="TorqueRequested_" units="nm" toexpr="(x-10000)/11.8" frexpr="x*11.8+10000" format="%.0f" min="0" max="250" inc="1" storagetype="uint16"/>
+
+	<scaling name="ThrottleRequested" units="%" toexpr="x/1.73" frexpr="x*1.73" format="%.0f" min="0" max="102" inc="1" storagetype="uint8"/>
+
+	<scaling name="Duty" units="%" toexpr="x/2.56" frexpr="2.56*x" format="%.0f" min="0" max="100" inc="1" storagetype="uint8" endian="big"/>
+	<scaling name="AVCS" units="degree" toexpr="x-128" frexpr="x+128" format="%.0f" min="0" max="50" inc="1" storagetype="uint8" endian="big"/>
+
+	<scaling name="InjectorPulse" units="ms" toexpr="x*0.004" frexpr="x/0.004" format="%.3f" min="0" max="50.0" inc="0.1" storagetype="uint16" endian="big"/>
+
+	<scaling name="IASV" units="steps" toexpr="x" frexpr="x" format="%.0f" min="0.0" max="255.0" inc="1" storagetype="uint8" endian="big"/>
+	<scaling name="CruiseSpeed" units="KpH" toexpr="x/1165084" frexpr="x*1165084" format="%.0f" min="0.0" max="255.0" inc="1" storagetype="uint32" endian="big"/>
+
+	<scaling name="blobbits" storagetype="bloblist" storagebits="1">
+		<data name="disable" value="00"/>
+		<data name="enable" value="01"/>
+	</scaling>
+
+
+	<table name="Injector Flow" category="Fuel" type="1D" level="4" scaling="InjectorFlow"/>
+
+	<table name="MAF Sensor Scaling" category="Fuel"  type="2D"  level="4" scaling="AirFlow">
+ 		   <table name="MAF Voltage" type="X Axis" elements="64" scaling="MAF_Voltage"/>
+	</table>
+	<table name="Load Max" category="Fuel"  type="1D"  level="4" scaling="LoadMax"/>
+	<table name="Engine Displacement" category="Fuel"  type="1D"  level="4" scaling="EngineDisplacement"/>
+
+	<table name="Fueling A" category="Fuel" type="3D" level="4" scaling="AirFuelRatio">
+		<table name="Manifold Pressure"  type="X Axis" elements="16" scaling="ManifoldPressureFueling"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Fueling B" category="Fuel" type="3D" level="4" scaling="AirFuelRatio">
+		<table name="Manifold Pressure"  type="X Axis" elements="16" scaling="ManifoldPressureFueling"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Fueling C" category="Fuel" type="3D" level="4" scaling="AirFuelRatio">
+		<table name="Manifold Pressure"  type="X Axis" elements="16" scaling="ManifoldPressureFueling"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Fueling D" category="Fuel" type="3D" level="4" scaling="AirFuelRatio">
+		<table name="Manifold Pressure"  type="X Axis" elements="16" scaling="ManifoldPressureFueling"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Fueling E" category="Fuel" type="3D" level="4" scaling="AirFuelRatio">
+		<table name="Manifold Pressure"  type="X Axis" elements="16" scaling="ManifoldPressureFueling"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Fueling Low IAM" category="Fuel" type="3D" level="4" scaling="AirFuelRatio">
+		<table name="Manifold Pressure"  type="X Axis" elements="16" scaling="ManifoldPressureFueling"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Fueling High IAM" category="Fuel" type="3D" level="4" scaling="AirFuelRatio">
+		<table name="Manifold Pressure"  type="X Axis" elements="16" scaling="ManifoldPressureFueling"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Fuel IAM Threshold" category="Fuel" type="1D" level="4" scaling="Row_uint8"/>
+
+	<table name="Base Timing A" category="Ignition" type="3D" level="4" scaling="Ignition">
+		<table name="Engine Load" type="X Axis" elements="16" scaling="EngineLoad"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Base Timing B" category="Ignition" type="3D" level="4" scaling="Ignition">
+		<table name="Engine Load" type="X Axis" elements="16" scaling="EngineLoad"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Base Timing C" category="Ignition" type="3D" level="4" scaling="Ignition">
+		<table name="Engine Load" type="X Axis" elements="16" scaling="EngineLoad"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Base Timing D" category="Ignition" type="3D" level="4" scaling="Ignition">
+		<table name="Engine Load" type="X Axis" elements="16" scaling="EngineLoad"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Timing Advance A" category="Ignition" type="3D" level="4" scaling="IgnAdvance">
+		<table name="Engine Load" type="X Axis" elements="16" scaling="EngineLoad"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Timing Advance B" category="Ignition" type="3D" level="4" scaling="IgnAdvance">
+		<table name="Engine Load" type="X Axis" elements="16" scaling="EngineLoad"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Timing Advance C" category="Ignition" type="3D" level="4" scaling="IgnAdvance">
+		<table name="Engine Load" type="X Axis" elements="16" scaling="EngineLoad"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Timing Advance D" category="Ignition" type="3D" level="4" scaling="IgnAdvance">
+		<table name="Engine Load" type="X Axis" elements="16" scaling="EngineLoad"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Timing Advance E" category="Ignition" type="3D" level="4" scaling="IgnAdvance">
+		<table name="Engine Load" type="X Axis" elements="16" scaling="EngineLoad"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Ignition Advance Multiplier" category="Ignition"  type="1D" level="4" scaling="Row_uint8"/>
+	<table name="Ignition Advance Multiplier Step" category="Ignition"  type="1D" level="4" scaling="Row_uint8"/>
+
+	<table name="Ignition Learning Load Min" category="Ignition" type="1D" level="4" scaling="EngineLoad"/>
+	<table name="Ignition Learning Load Max" category="Ignition" type="1D" level="4" scaling="EngineLoad"/>
+	<table name="Ignition Learning Load Range" category="Ignition" type="X Axis" level="4" elements="8" scaling="EngineLoad"/>
+	<table name="Ignition Learning Speed Min" category="Ignition" type="1D" level="4" scaling="EngineSpeed"/>
+	<table name="Ignition Learning Speed Max" category="Ignition" type="1D" level="4" scaling="EngineSpeed"/>
+	<table name="Ignition Learning Speed Range" category="Ignition" type="Y Axis" level="4" elements="8" scaling="EngineSpeed"/>
+
+	<table name="AVCS Timing" category="AVCS" type="3D" level="4" scaling="AVCS">
+		<table name="Engine Load" type="X Axis" elements="16" scaling="EngineLoad"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="AVCS Retard" category="AVCS" type="3D" level="4" scaling="AVCS">
+		<table name="Engine Load" type="X Axis" elements="16" scaling="EngineLoad"/>
+		<table name="Engine Speed"  type="Y Axis" elements="24" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Torque Requested A" category="Throttle" type="3D" level="4" scaling="TorqueRequested">
+		<table name="Accelerator"  type="X Axis" elements="16" scaling="Accelerator"/>
+		<table name="Engine Speed"  type="Y Axis" elements="16" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Torque Requested B" category="Throttle" type="3D" level="4" scaling="TorqueRequested">
+		<table name="Accelerator"  type="X Axis" elements="16" scaling="Accelerator"/>
+		<table name="Engine Speed"  type="Y Axis" elements="16" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="Throttle Requested" category="Throttle" type="3D" level="4" scaling="ThrottleRequested">
+		<table name="Engine Speed"  type="X Axis" elements="16" scaling="EngineSpeed"/>
+		<table name="Torque Requested"  type="Y Axis" elements="16" scaling="TorqueRequested"/>
+	</table>
+
+	<table name="Throttle Requested_" category="Throttle" type="3D" level="4" scaling="ThrottleRequested">
+		<table name="Engine Speed"  type="X Axis" elements="16" scaling="EngineSpeed"/>
+		<table name="Torque Requested"  type="Y Axis" elements="16" scaling="TorqueRequested_"/>
+	</table>
+
+	<table name="Throttle Requested__" category="Throttle" type="3D" level="4" scaling="ThrottleRequested">
+		<table name="Torque Requested"  type="X Axis" elements="16" scaling="TorqueRequested"/>
+		<table name="Engine Speed"  type="Y Axis" elements="16" scaling="EngineSpeed"/>
+	</table>
+
+	<table name="SSM Idle Min" category="Idle" type="1D" level="4" scaling="EngineIdle"/>
+	<table name="SSM Idle Max" category="Idle" type="1D" level="4" scaling="EngineIdle"/>
+	<table name="SSM IdleAirCon Min" category="Idle" type="1D" level="4" scaling="EngineIdle"/>
+	<table name="SSM IdleAirCon Max" category="Idle" type="1D" level="4" scaling="EngineIdle"/>
+
+	<table name="ECU Options 2" category="ECU Options" address="8032" type="2D" level="4" scaling="blobbits">
+		<table name="Option Bit" type="Static Y Axis" elements="8">
+			<data>bit.0</data>
+			<data>bit.1</data>
+			<data>bit.2</data>
+			<data>bit.3</data>
+			<data>bit.4</data>
+			<data>bit.5</data>
+			<data>Immo</data>
+			<data>ImmoNoParity</data>
+		</table>
+	</table>
+
+</rom>

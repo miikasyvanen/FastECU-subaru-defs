@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rom>
+  <romid>
+    <xmlid>6607387407</xmlid>
+    <internalidaddress>80f8</internalidaddress>
+    <internalidstring>6607387407</internalidstring>
+    <ecuid>6607387407</ecuid>
+    <make>Subaru</make>
+    <market>EDM</market>
+    <model>Legacy</model>
+    <submodel>2.0i</submodel>
+    <transmission>MT</transmission>
+    <year>2004</year>
+    <flashmethod>sub_ecu_hitachi_m32r_can</flashmethod>
+    <memmodel></memmodel>
+    <checksummodule></checksummodule>
+  </romid>
+
+	<include>32BITBASE_HITACHI_EJ204_DBW</include>
+
+</rom>
+

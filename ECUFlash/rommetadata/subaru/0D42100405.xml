@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<roms>
+  <rom>
+    <romid>
+      <xmlid>32BITBASE</xmlid>
+      <market>UK</market>
+      <make>Subaru</make>
+      <model>Impreza</model>
+      <submodel>2.0 STi</submodel>
+      <transmission>MT</transmission>
+      <memmodel>UJ20</memmodel>
+      <flashmethod>sub_ecu_unisia_jecs_20</flashmethod>
+      <filesize>128kb</filesize>
+    </romid>
+    <table type="3D" name="Target Boost" category="Boost Control - Target" storagetype="uint8" endian="big" sizex="8" sizey="8" userlevel="1" logparam="E52">
+      <scaling units="Boost Target (bar relative)" expression="x*.010665792-1" to_byte="(x+1)/.010665792" format="#0.00" fineincrement=".01" coarseincrement=".1" />
+      <table type="X Axis" name="Throttle Plate Opening Angle" storagetype="uint8" endian="big" logparam="E38">
+        <scaling units="%" expression="x*100/255" to_byte="x*255/100" format="0.00" fineincrement=".1" coarseincrement="1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="big" logparam="P8">
+        <scaling units="RPM" expression="x*50" to_byte="x/50" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>This map contains the desired boost targets. Boost compensation tables can impact the final boost target.</description>
+    </table>
+    <table type="3D" name="Max Wastegate Duty" category="Boost Control - Target" storagetype="uint8" endian="big" sizex="8" sizey="8" userlevel="1" logparam="E52">
+      <scaling units="Boost Target (bar relative)" expression="x*100/255" to_byte="x*255/100" format="#0.00" fineincrement=".01" coarseincrement=".1" />
+      <table type="X Axis" name="Throttle Plate Opening Angle" storagetype="uint8" endian="big" logparam="E38">
+        <scaling units="%" expression="x*100/255" to_byte="x*255/100" format="0.00" fineincrement=".1" coarseincrement="1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="big" logparam="P8">
+        <scaling units="RPM" expression="x*50" to_byte="x/50" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>These are the maximum values for wastegate duty. Wastegate compensation tables also are applied to these values.</description>
+    </table>
+
+    <table type="2D" name="Boost Limit (Fuel Cut)" category="Boost Control - Limits" storagetype="uint8" endian="big" sizey="14" userlevel="5">
+      <scaling units="Boost Limit (bar relative)" expression="x*.010665792-1" to_byte="(x+1)/.010665792" format="0.00" fineincrement=".01" coarseincrement=".1" />
+        <table type="Static X Axis" name="Atmospheric Pressure (bar absolute)" sizey="14" logparam="P8">
+          <data>0.533</data>
+          <data>0.564</data>
+          <data>0.595</data>
+          <data>0.627</data>
+          <data>0.658</data>
+          <data>0.689</data>
+          <data>0.720</data>
+          <data>0.752</data>
+          <data>0.783</data>
+          <data>0.814</data>
+          <data>0.845</data>
+          <data>0.877</data>
+          <data>0.908</data>
+          <data>0.939</data>
+          <data>0.970</data>
+          <data>1.001</data>
+        </table>
+      <description>Fuel cut will be activated when actual boost exceeds the corresponding threshold in this table.</description>
+    </table>
+
+    <table type="3D" name="Primary Open Loop Fueling" category="Fueling - Primary Open Loop" storagetype="uint8" endian="big" sizex="16" sizey="16" userlevel="1" logparam="">
+      <scaling units="Estimated Air/Fuel Ratio" expression="14.7*128/x" to_byte="14.7*128/x" format="0.00" fineincrement=".06" coarseincrement=".5" />
+      <table type="X Axis" name="Engine Load" storagetype="uint8" endian="big" logparam="">
+        <scaling units="g/rev" expression="x" to_byte="x" format="0.00" fineincrement=".01" coarseincrement=".1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="big" logparam="">
+        <scaling units="RPM" expression="x*50" to_byte="x/50" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>This fuel map is used in open loop when the ignition advance multiplier (IAM) is greater than or equal to the threshold specified by the 'Primary Open Loop Fuel Map Switch (IAM)' table. Because there is no feedback in open loop, the actual AFR may differ from the values presented in this table. In addition, the ECU applies a long-term correction (A/F Learning) to open loop fueling from patterns it recognizes in closed loop fueling. Other compensations and minimum enrichment factors exist as well. Because the underlying values of this table are enrichment offsets relative to stoichiometric, AFRs leaner than 14.7, as presented, are not valid.</description>
+    </table>
+    
+    <table type="3D" name="Lo Det Fuel Compensation" category="Fueling - Primary Open Loop" storagetype="uint8" endian="big" sizex="16" sizey="16" userlevel="1" logparam="">
+      <scaling units="Estimated Air/Fuel Ratio" expression="x*0.06802721088435375" to_byte="x/0.06802721088435375" format="0.00" fineincrement=".06" coarseincrement=".5" />
+      <table type="X Axis" name="Engine Load" storagetype="uint8" endian="big" logparam="">
+        <scaling units="g/rev" expression="x" to_byte="x" format="0.00" fineincrement=".01" coarseincrement=".1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="big" logparam="">
+        <scaling units="RPM" expression="x*50" to_byte="x/50" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>Unknown function - May adjust AFR based on Det actvity.</description>
+    </table>
+    <table type="3D" name="Hi Det Fuel Compensation" category="Fueling - Primary Open Loop" storagetype="uint8" endian="big" sizex="16" sizey="16" userlevel="1" logparam="">
+      <scaling units="Estimated Air/Fuel Ratio" expression="x*0.06802721088435375" to_byte="x/0.06802721088435375" format="0.00" fineincrement=".06" coarseincrement=".5" />
+      <table type="X Axis" name="Engine Load" storagetype="uint8" endian="big" logparam="">
+        <scaling units="g/rev" expression="x" to_byte="x" format="0.00" fineincrement=".01" coarseincrement=".1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="big" logparam="">
+        <scaling units="RPM" expression="x*50" to_byte="x/50" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>Unknown function - May adjust AFR based on Det actvity.</description>
+    </table>
+    <table type="3D" name="UNKNOWN Fuel Compensation" category="Fueling - Primary Open Loop" storagetype="uint8" endian="big" sizex="16" sizey="16" userlevel="1" logparam="">
+      <scaling units="Estimated Air/Fuel Ratio" expression="x*0.06802721088435375" to_byte="x/0.06802721088435375" format="0.00" fineincrement=".06" coarseincrement=".5" />
+      <table type="X Axis" name="Engine Load" storagetype="uint8" endian="big" logparam="">
+        <scaling units="g/rev" expression="x" to_byte="x" format="0.00" fineincrement=".01" coarseincrement=".1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="big" logparam="">
+        <scaling units="RPM" expression="x*50" to_byte="x/50" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>Unknown function - May adjust AFR based on Det actvity.</description>
+    </table>
+    
+    
+    <table type="3D" name="Hi Octane Ignition Map A" category="Ignition Timing - Advance" storagetype="uint8" endian="big" sizex="16" sizey="16" userlevel="1" logparam="">
+      <scaling units="Estimated Air/Fuel Ratio" expression="x" to_byte="x" format="#" fineincrement="1" coarseincrement="1" />
+      <table type="X Axis" name="Engine Load" storagetype="uint8" endian="big" logparam="">
+        <scaling units="g/rev" expression="x" to_byte="x" format="0.0" fineincrement="1" coarseincrement="1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="big" logparam="">
+        <scaling units="RPM" expression="x*50" to_byte="x/50" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>This is the Hi Octane base level of timing. Total timing = base timing + knock correction advance + other timing compensations. Knock correction advance = (knock correction advance max map value * (current advance multiplier / 16)) + feedback knock correction + fine knock correction.</description>
+    </table>
+    <table type="3D" name="Hi Octane Ignition Map B" category="Ignition Timing - Advance" storagetype="uint8" endian="big" sizex="16" sizey="16" userlevel="1" logparam="">
+      <scaling units="Estimated Air/Fuel Ratio" expression="x" to_byte="x" format="#" fineincrement="1" coarseincrement="1" />
+      <table type="X Axis" name="Engine Load" storagetype="uint8" endian="big" logparam="">
+        <scaling units="g/rev" expression="x" to_byte="x" format="0.0" fineincrement="1" coarseincrement="1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="big" logparam="">
+        <scaling units="RPM" expression="x*50" to_byte="x/50" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>This is the Hi Octane base level of timing. Total timing = base timing + knock correction advance + other timing compensations. Knock correction advance = (knock correction advance max map value * (current advance multiplier / 16)) + feedback knock correction + fine knock correction.</description>
+    </table>
+    <table type="3D" name="Lo Octane Ignition Map" category="Ignition Timing - Advance" storagetype="uint8" endian="big" sizex="16" sizey="16" userlevel="1" logparam="">
+      <scaling units="Estimated Air/Fuel Ratio" expression="x" to_byte="x" format="#" fineincrement="1" coarseincrement="1" />
+      <table type="X Axis" name="Engine Load" storagetype="uint8" endian="big" logparam="">
+        <scaling units="g/rev" expression="x" to_byte="x" format="0.0" fineincrement="1" coarseincrement="1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="big" logparam="">
+        <scaling units="RPM" expression="x*50" to_byte="x/50" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>This is the Hi Octane base level of timing. Total timing = base timing + knock correction advance + other timing compensations. Knock correction advance = (knock correction advance max map value * (current advance multiplier / 16)) + feedback knock correction + fine knock correction.</description>
+    </table>
+
+    <table type="3D" name="Hi Octane Ignition Compensation" category="Ignition Timing - Compensation" storagetype="uint8" endian="big" sizex="16" sizey="16" userlevel="1" logparam="">
+      <scaling units="Estimated Air/Fuel Ratio" expression="x" to_byte="x" format="#" fineincrement="1" coarseincrement="1" />
+      <table type="X Axis" name="Engine Load" storagetype="uint8" endian="big" logparam="">
+        <scaling units="g/rev" expression="x" to_byte="x" format="0.0" fineincrement="1" coarseincrement="1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="big" logparam="">
+        <scaling units="RPM" expression="x*50" to_byte="x/50" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>This is the change in total ignition timing per cylinder based on engine speed.</description>
+    </table>
+    <table type="3D" name="Lo Octane Ignition Compensation" category="Ignition Timing - Compensation" storagetype="uint8" endian="big" sizex="16" sizey="16" userlevel="1" logparam="">
+      <scaling units="Estimated Air/Fuel Ratio" expression="x" to_byte="x" format="#" fineincrement="1" coarseincrement="1" />
+      <table type="X Axis" name="Engine Load" storagetype="uint8" endian="big" logparam="">
+        <scaling units="g/rev" expression="x" to_byte="x" format="0.0" fineincrement="1" coarseincrement="1" />
+      </table>
+      <table type="Y Axis" name="Engine Speed" storagetype="uint8" endian="big" logparam="">
+        <scaling units="RPM" expression="x*50" to_byte="x/50" format="#" fineincrement="50" coarseincrement="100" />
+      </table>
+      <description>This is the change in total ignition timing per cylinder based on engine speed.</description>
+    </table>
+  </rom>
+
+  <rom base="32BITBASE">
+    <romid>
+      <xmlid>0D42100405</xmlid>
+      <internalidaddress>0x01F8</internalidaddress>
+      <internalidstring>0D42100405</internalidstring>
+      <ecuid>0000000000</ecuid>
+      <year>00</year>
+      <market>EDM</market>
+      <make>Subaru</make>
+      <model>Legacy</model>
+      <submodel>2.0 B4</submodel>
+      <transmission>MT/AT</transmission>
+      <memmodel>UJ20</memmodel>
+      <flashmethod>sub_ecu_unisia_jecs_20</flashmethod>
+      <filesize>128kb</filesize>
+    </romid>
+    <table name="Target Boost" storageaddress="0x1EC5">
+      <table type="X Axis" storageaddress="0x1DE2" />
+      <table type="Y Axis" storageaddress="0x1DF3" />
+    </table>
+    <table name="Max Wastegate Duty" storageaddress="0x1F05">
+      <table type="X Axis" storageaddress="0x1DE2" />
+      <table type="Y Axis" storageaddress="0x1DFB" />
+    </table>
+
+    <table name="Boost Limit (Fuel Cut)" storageaddress="0xC74">
+      <table type="Static X Axis" storageaddress="" />
+    </table>
+    
+    <table name="Primary Open Loop Fueling" storageaddress="0x138F">
+      <table type="X Axis" storageaddress="0x136F" />
+      <table type="Y Axis" storageaddress="0x137F" />
+    </table>
+
+    <table name="Lo Det Fuel Compensation" storageaddress="0x105D">
+      <table type="X Axis" storageaddress="0x136F" />
+      <table type="Y Axis" storageaddress="0x137F" />
+    </table>
+    <table name="Hi Det Fuel Compensation" storageaddress="0x115D">
+      <table type="X Axis" storageaddress="0x136F" />
+      <table type="Y Axis" storageaddress="0x137F" />
+    </table>
+    <table name="UNKNOWN Fuel Compensation" storageaddress="0x125D">
+      <table type="X Axis" storageaddress="0x136F" />
+      <table type="Y Axis" storageaddress="0x137F" />
+    </table>
+
+    <table name="Hi Octane Ignition Map A" storageaddress="0x31C">
+      <table type="X Axis" storageaddress="0x136F" />
+      <table type="Y Axis" storageaddress="0x137F" />
+    </table>
+    <table name="Hi Octane Ignition Map B" storageaddress="0x61C">
+      <table type="X Axis" storageaddress="0x136F" />
+      <table type="Y Axis" storageaddress="0x137F" />
+    </table>
+    <table name="Lo Octane Ignition Map" storageaddress="0x71C">
+      <table type="X Axis" storageaddress="0x136F" />
+      <table type="Y Axis" storageaddress="0x137F" />
+    </table>
+
+    <table name="Hi Octane Ignition Compensation" storageaddress="0x41C">
+      <table type="X Axis" storageaddress="0x136F" />
+      <table type="Y Axis" storageaddress="0x137F" />
+    </table>
+    <table name="Lo Octane Ignition Compensation" storageaddress="0x51C">
+      <table type="X Axis" storageaddress="0x136F" />
+      <table type="Y Axis" storageaddress="0x137F" />
+    </table>
+  </rom>
+</roms>
