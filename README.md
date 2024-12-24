@@ -3,6 +3,7 @@ This repository is used to develop Subaru ECU definitions for use with:
 
 - FastECU https://www.fastecu.fi/forum
 - ECUFlash http://www.tactrix.com
+- Romraider http://www.romraider.com
 
 # WARNING
 
